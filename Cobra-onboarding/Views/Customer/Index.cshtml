@@ -1,0 +1,162 @@
+﻿@model IEnumerable<Cobra_onboarding.Models.Person>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Index</h2>
+
+<div ng-app="onboardapp">
+    
+    <div ng-controller="CustomerController">
+        <div > <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
+        </div>
+        <table class="table">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Address1
+                </th>
+                <th>
+                    Address2
+                </th>
+                <th>
+                    City/Town
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            <tr ng-repeat="customer in CustomerList">
+                <td >
+                    {{customer.Name}}
+                </td>
+                <td>
+                    {{customer.Address1}}
+                </td>
+                <td>
+                    {{customer.Address2}}
+                </td>
+                <td>
+                    {{customer.City}}
+                </td>
+                <td>
+                    <a href="#" data-toggle="modal" data-target="#myModal" ng-click="edit(customer)">Edit</a>/
+                    <a href="#" ng-click="delete(customer)">Delete</a>
+                </td>
+            </tr>
+        </table>
+       
+        <!-- The Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Customer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="addFriendForm">
+                            Name:
+                            <input ng-model="Name" class="form-control" type="text" placeholder="Name" title="Name" />
+                            Address1:
+                            <input ng-model="Address1" class="form-control" type="text" placeholder="Address1" title="Address1" />
+                            Address2:
+                            <input ng-model="Address2" class="form-control" type="text" placeholder="Address2" title="Address2" />
+                            City:
+                            <input ng-model="City" class="form-control" type="text" placeholder="City" title="City" />
+                        </form>
+                    </div>
+                        
+                    <div class="modal-footer">
+                        <button type="button" ng-click="submit()" class="btn btn-default" data-dismiss="modal">Submit</button>
+                        <button type="button" ng-click="reset()" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        @*<div>
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3 class="modal-title">{{ !user.hasOwnProperty("Id") ? "Adding" : "Editing"}} Customer</h3>
+                </div>
+
+                <form name="addFriendForm">
+                    Name: 
+                    <input ng-model="user.Name" class="form-control" type="text" placeholder="Name" title="Name" />
+                    Address1:
+                    <input ng-model="user.Address1" class="form-control" type="text" placeholder="Address1" title="Address1" />
+                    Address2:
+                    <input ng-model="user.Address2" class="form-control" type="text" placeholder="Address2" title="Address2" /> 
+                    City:
+                    <input ng-model="user.City" class="form-control" type="text" placeholder="City" title="City" />
+                </form>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" ng-click="save(user)">Save</button>
+                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+
+        </div>*@
+    </div>
+    
+    
+    </body>
+   
+
+</div>
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@
